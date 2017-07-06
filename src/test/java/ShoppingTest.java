@@ -1,6 +1,8 @@
+import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -15,9 +17,10 @@ import static org.hamcrest.core.IsEqual.equalTo;
  */
 public class ShoppingTest {
 
-    /*
-    Halo i bims - der seleniumHorst. Mein Passwort ergänzt mich um "123".
-     */
+    @BeforeClass
+    public static void setupWebDriverManager(){
+        ChromeDriverManager.getInstance().setup();
+    }
 
     @Test
     public void loginWithValidCredentialsShouldBeSuccessfullTest() {
