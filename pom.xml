@@ -6,6 +6,7 @@
 
     <groupId>SeleniumWorkshop</groupId>
     <artifactId>PHPTravelTests</artifactId>
+
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
@@ -27,7 +28,5 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
-
 
 </project>
