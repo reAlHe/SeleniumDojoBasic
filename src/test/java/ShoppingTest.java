@@ -69,4 +69,17 @@ public class ShoppingTest {
         assertThat(products.size(), is(greaterThan(1)));
         driver.quit();
     }
+
+    @Test
+    public void sendContactMessageWithoutSubjectShouldFailTest() {
+        ChromeDriver driver = new ChromeDriver();
+        driver.get("http://automationpractice.com");
+        driver.findElementById("contact-link").click();
+        driver.findElementById("email").sendKeys("test@testmail.co.uk");
+        driver.findElementById("message").sendKeys("This is a test. Please do nothing");
+        driver.findElementById("submitMessage").click();
+        String errorText = driver.findElementByXPath("//div[@class='alert alert-danger']//ol//li").getText();
+        assertThat(errorText, is(equalTo("Please select a subject from the list provided.")));
+        driver.quit();
+    }
 }
