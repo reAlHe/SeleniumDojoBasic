@@ -1,18 +1,11 @@
-import org.hamcrest.core.Is;
-import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -21,6 +14,10 @@ import static org.hamcrest.core.IsEqual.equalTo;
  * Created by alexanderhe on 06.07.17.
  */
 public class ShoppingTest {
+
+    /*
+    Halo i bims - der seleniumHorst. Mein Passwort ergänzt mich um "123".
+     */
 
     @Test
     public void loginWithValidCredentialsShouldBeSuccessfullTest() {
