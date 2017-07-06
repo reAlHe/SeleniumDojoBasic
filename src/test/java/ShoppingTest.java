@@ -20,7 +20,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
 /**
  * Created by alexanderhe on 06.07.17.
  */
-public class PHPTravelTest {
+public class ShoppingTest {
 
     @Test
     public void loginWithValidCredentialsShouldBeSuccessfullTest() {
@@ -51,7 +51,6 @@ public class PHPTravelTest {
     @Test
     public void searchForProductBySendingReturn() {
         ChromeDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get("http://automationpractice.com");
         driver.findElementById("search_query_top").sendKeys("dress");
         driver.findElementById("search_query_top").sendKeys(Keys.RETURN);
@@ -60,11 +59,9 @@ public class PHPTravelTest {
         driver.quit();
     }
 
-
     @Test
     public void searchForProductByClickingSearchButton() {
         ChromeDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get("http://automationpractice.com");
         driver.findElementById("search_query_top").sendKeys("dress");
         driver.findElementByCssSelector("button.btn.btn-default.button-search").click();
