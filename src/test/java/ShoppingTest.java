@@ -1,8 +1,11 @@
+import Klassen.LoginPage;
+import Klassen.WelcomePage;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -17,15 +20,21 @@ import static org.hamcrest.core.IsEqual.equalTo;
  */
 public class ShoppingTest {
 
+    private ChromeDriver driver;
+
     @BeforeClass
     public static void setupWebDriverManager(){
         ChromeDriverManager.getInstance().setup();
     }
 
+    @BeforeTest
+    public void initTest(){
+        driver = new ChromeDriver();
+        driver.get("http://automationpractice.com");
+    }
+
     @Test
     public void loginWithValidCredentialsShouldBeSuccessfullTest() {
-        ChromeDriver driver = new ChromeDriver();
-        driver.get("http://automationpractice.com");
         driver.findElementByCssSelector("a.login").click();
         driver.findElementById("email").sendKeys("rianamahliadewi@gmail.com");
         driver.findElementById("passwd").sendKeys("lalayeyeye");
@@ -33,6 +42,14 @@ public class ShoppingTest {
         String welcomeText = driver.findElementByCssSelector("p.info-account").getText();
         assertThat(welcomeText, is(equalTo("Welcome to your account. Here you can manage all of your personal information and orders.")));
         driver.quit();
+    }
+
+    @Test
+    public void loginWithValidCredentialsShouldBeSuccessfullWithPageObjectsTest() {
+        WelcomePage welcome = new WelcomePage(driver);
+        LoginPage login = welcome.clickSignInButton();
+        login.fillEmail("test123@gmail.com");
+        login.fillPassword("Dasistfalsch");
     }
 
     @Test
