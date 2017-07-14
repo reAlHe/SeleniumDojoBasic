@@ -19,6 +19,9 @@ public class LoginPage {
     @FindBy(id = "SubmitLogin")
     private WebElement loginButton;
 
+    @FindBy(xpath = "//div[@class='alert alert-danger']//ol//li")
+    private WebElement errorBox;
+
     public LoginPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
@@ -33,5 +36,9 @@ public class LoginPage {
 
     public void clickLoginButton(){
         loginButton.click();
+    }
+
+    public String fetchErrorMessage(){
+        return errorBox.getText();
     }
 }
