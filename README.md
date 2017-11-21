@@ -27,7 +27,8 @@ Hier noch ein paar nützliche (basic) Selenium Commands aus unserer 2. Session:
         element.click();
         element.sendKeys("deinEingabetext");
 
-        // Methodenverkettung: Aktion direkt nach selektieren des Elements ausführen ohne das Element in einer Variablen zu speichern
+        // Methodenverkettung: Aktion direkt nach selektieren des Elements ausführen 
+        // ohne das Element in einer Variablen zu speichern
         driver.findElementById("ichBinDieID").click();
 
         // Text eines Elements auslesen und in einer Variablen speichern
@@ -35,5 +36,5 @@ Hier noch ein paar nützliche (basic) Selenium Commands aus unserer 2. Session:
 
         // Assertion Bsp.
         Assert.assertTrue("Der Titel konnte nicht gefunden werden",driver.getPageSource().contains("Horst"));
-        Assert.assertEquals("wrong success message", successMessage.getText(), "Done! Computer Horst has been created");
+        Assert.assertEquals("wrong success message", successMessage.getText(), "Done!");
  ```       
