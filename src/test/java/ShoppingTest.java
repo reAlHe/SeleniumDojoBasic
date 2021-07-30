@@ -1,8 +1,8 @@
 import Klassen.*;
-import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
 
 import java.util.List;
@@ -17,16 +17,16 @@ import static org.hamcrest.core.IsEqual.equalTo;
  */
 public class ShoppingTest {
 
-    private ChromeDriver driver;
+    private FirefoxDriver driver;
 
     @BeforeClass
     public static void setupWebDriverManager(){
-        ChromeDriverManager.getInstance().setup();
+        ChromeDriverManager.firefoxdriver();
     }
 
     @BeforeMethod
     public void initTest(){
-        driver = new ChromeDriver();
+        driver = new FirefoxDriver();
         driver.get("http://automationpractice.com");
     }
 
